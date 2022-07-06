@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.Cart_24">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DemoGoogleSheet"
+        tools:targetApi="31">
+        <activity
+            android:name="com.example.Cart_24.Change_Password"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.Cart_24.login.ProductList" />
+        </activity>
+
+        <activity
+            android:name="com.example.Cart_24.Chnage_password_Success"
+            android:exported="false" />
+        <activity
+            android:name="com.example.Cart_24.login.Forgot_password"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.Cart_24.login.LogIn" />
+        </activity>
+
+
+
+        <activity
+            android:name="com.example.Cart_24.CropperActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.Cart_24.login.Order_complete"
+            android:exported="false" />
+        <activity
+            android:name="com.example.Cart_24.login.OrderedList_Nav"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.Cart_24.login.ProductList" />
+        </activity>
+        <activity
+            android:name="com.example.Cart_24.login.LogIn"
+            android:exported="false"
+            android:theme="@style/Theme.MY" />
+        <activity
+            android:name="com.example.Cart_24.login.Cart"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.Cart_24.login.ProductList" />
+        </activity>
+        <activity
+            android:name="com.example.Cart_24.login.SignUp"
+            android:exported="false"
+            android:theme="@style/Theme.MY" />
+        <activity
+            android:name="com.example.Cart_24.login.ProductList"
+            android:exported="false" />
+        <activity
+            android:name="com.example.Cart_24.login.Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.Cart_24.login.ProductList" />
+        </activity>
+        <activity
+            android:name="com.example.Cart_24.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    </application>
+
+</manifest>
