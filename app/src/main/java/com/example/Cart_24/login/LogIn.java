@@ -1,5 +1,6 @@
 package com.example.Cart_24.login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -23,9 +25,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.Cart_24.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class LogIn extends AppCompatActivity {
@@ -36,7 +44,7 @@ public class LogIn extends AppCompatActivity {
     ProgressDialog loading;
     SharedPreferences sp;
     Boolean passwordVisible = false;
-
+    protected String TOKEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +105,21 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.d( "token","Fetching FCM registration token failed");
+                            return;
+                        }
+                        // Get new FCM registration token
+                        TOKEN = task.getResult();
+                        Log.d( "token",TOKEN);
+                    }
+                });
+
     }
 
     private void getItems() {
@@ -132,6 +155,7 @@ public class LogIn extends AppCompatActivity {
                                 editor.putString("email", email);
                                 editor.apply();
 
+                                uploadTOKEN(TOKEN);
 
                                 Intent intent = new Intent(getApplicationContext(), ProductList.class);
                                 startActivity(intent);
@@ -164,6 +188,32 @@ public class LogIn extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
 
+    }
+
+    private void uploadTOKEN(String token) {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        //POST TOKEN with email
+        String url="https://script.google.com/macros/s/AKfycbyLg-9jrBKpl89sRThRV_LoC_nU9q_ya75Z-aNiV0F4VcDtNPsI4gLUN8LkbYb7LVX8/exec";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url
+                , new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response +"token change");
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("token",token);
+                params.put("email",sp.getString("email",""));
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 
 

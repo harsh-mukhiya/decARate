@@ -95,12 +95,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
             public void run() {
                 holder.newQuantity =curd.getQuantity(mproductList.get(position).uid, mproductList.get(position).email )-1;
                 holder.pQuantity.setSelection(holder.newQuantity);
+                updatePrice();
+
             }
         };
         Thread thread = new Thread(runnable);
         thread.start();
-
-        updatePrice();
         if (isAvailable(String.valueOf(mproductList.get(position).getUid()))) {
             holder.product_name.setTextColor(Color.RED);
         } else {

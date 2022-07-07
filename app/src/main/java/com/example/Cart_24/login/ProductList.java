@@ -51,6 +51,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProductList extends AppCompatActivity implements AdapterCallback {
     TextView product_name;
@@ -59,7 +61,7 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
     CURDOperations curd;
 
 
-    ProgressDialog loading;
+    ProgressDialog loading, loggingout;
     RecyclerView recyclerView;
     ArrayList<DEMO> arr;
     CustomAdapter c;
@@ -194,14 +196,8 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                SharedPreferences.Editor editor = sp.edit();
-                                editor.clear();
-                                editor.commit();
                                 dialog.dismiss();
-                                Intent intent = new Intent(getApplicationContext(), LogIn.class);
-                                startActivity(intent);
-                                finishAffinity();
-
+                                uploadTOKEN(" ");
                             }
                         });
                         no.setOnClickListener(new View.OnClickListener() {
@@ -330,6 +326,40 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
             }
         };
         new Thread(runnable).start();
+    }
+
+
+    private void uploadTOKEN(String token) {
+        loggingout = ProgressDialog.show(this, "Logout", "Just a moment...");
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        //POST TOKEN with email
+        String url="https://script.google.com/macros/s/AKfycbyLg-9jrBKpl89sRThRV_LoC_nU9q_ya75Z-aNiV0F4VcDtNPsI4gLUN8LkbYb7LVX8/exec";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url
+                , new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.commit();
+                startActivity(new Intent(getApplicationContext(), LogIn.class));
+                finishAffinity();
+                loggingout.dismiss();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("token", token);
+                params.put("email", sp.getString("email", ""));
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 
 }
