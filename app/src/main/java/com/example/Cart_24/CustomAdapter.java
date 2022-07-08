@@ -1,9 +1,11 @@
 package com.example.Cart_24;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +16,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.example.Cart_24.DataBase.CURDOperations;
 import com.example.Cart_24.DataBase.Product;
+import com.example.Cart_24.login.Cart;
+import com.example.Cart_24.login.LogIn;
 
 import java.util.ArrayList;
 
@@ -33,7 +38,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         private final TextView price;
         private final TextView pQuantity;
         private final ImageView imageView;
-        private final TextView btnaddtocart;
+        private final TextView btnaddtocart, buy_now;
+        private final TextView out_of_stock;
+
 
         public ViewHolder(View view) {
             super(view);
@@ -42,6 +49,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             pQuantity = view.findViewById(R.id.quantity);
             imageView = view.findViewById(R.id.profile_Image);
             btnaddtocart = view.findViewById(R.id.add_to_cart);
+            out_of_stock = view.findViewById(R.id.out_of_stock);
+            buy_now = view.findViewById(R.id.buy_now);
         }
     }
 
@@ -74,10 +83,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         if (Integer.parseInt(mDEMO.getQuantity()) > 0) {
             localQuantity.setText("Available : " + mDEMO.getQuantity());
             localPrice.setVisibility(View.VISIBLE);
+            localQuantity.setVisibility(View.VISIBLE);
+            viewHolder.buy_now.setVisibility(View.VISIBLE);
             viewHolder.btnaddtocart.setVisibility(View.VISIBLE);
+            viewHolder.out_of_stock.setVisibility(View.GONE);
+
         } else {
-            localQuantity.setText("Out of Stock");
-            localQuantity.setTextColor(Color.DKGRAY);
+            viewHolder.out_of_stock.setVisibility(View.VISIBLE);
+            viewHolder.buy_now.setVisibility(View.GONE);
+            localQuantity.setVisibility(View.GONE);
             localPrice.setVisibility(View.GONE);
             viewHolder.btnaddtocart.setVisibility(View.GONE);
 
@@ -97,7 +111,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             @Override
             public void run() {
                 if (curd.getProductById(mDEMO.getProductID(), mDEMO.getEmail())) {  //,  mDEMO.getEmail()
-                    viewHolder.btnaddtocart.setText("Remove From Cart");
+                    viewHolder.btnaddtocart.setText(" Remove ");
                 } else {
                     viewHolder.btnaddtocart.setText("Add to Cart");
                 }
@@ -105,6 +119,33 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         };
         Thread thread = new Thread(runnable);
         thread.start();
+
+        viewHolder.buy_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Product product = new Product();
+                product.uid = mDEMO.getProductID();
+                product.product_name = mDEMO.getpName();
+                product.price = mDEMO.getPrice();
+                product.imageUrl = mDEMO.getImgURL();
+                product.email = mDEMO.getEmail();
+                product.setmaxQuantity(Integer.parseInt(mDEMO.getQuantity()));
+                product.setQuantity(1);
+
+                Intent i = new Intent(mcontext, Cart.class);
+                i.putExtra("type","buy");
+                i.putExtra("name",product.getProduct_name());
+                i.putExtra("quantity",product.getQuantity());
+                i.putExtra("price",product.getPrice());
+                i.putExtra("image",product.getImageUrl());
+                i.putExtra("id",product.getUid());
+                i.putExtra("maxQuantity",product.getmaxQuantity());
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mcontext.startActivity(i);
+
+
+            }
+        });
 
 
         viewHolder.btnaddtocart.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +160,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 product.setmaxQuantity(Integer.parseInt(mDEMO.getQuantity()));
                 product.setQuantity(1);
 
-                if (viewHolder.btnaddtocart.getText().toString().equalsIgnoreCase("Remove From Cart")) {
+                if (viewHolder.btnaddtocart.getText().toString().equalsIgnoreCase(" Remove ")) {
                     Runnable runnable = new Runnable() {
                         @Override
                         public void run() {
@@ -130,8 +171,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     Thread thread = new Thread(runnable);
                     thread.start();
                     viewHolder.btnaddtocart.setText("Add to Cart");
-
-
                 } else {
                     Runnable runnable = new Runnable() {
                         @Override
@@ -142,7 +181,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     };
                     Thread thread = new Thread(runnable);
                     thread.start();
-                    viewHolder.btnaddtocart.setText("Remove From Cart");
+                    viewHolder.btnaddtocart.setText(" Remove ");
 
                 }
             }

@@ -43,19 +43,23 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 public class Cart extends AppCompatActivity implements AdapterCallback {
-    List<Product> productList;
+    List<Product> productList=new ArrayList<>();
     RecyclerView recyclerView;
     CURDOperations curd;
     CartAdapter cartAdapter;
     TextView price;
     TextView checkout;
     String output;
+    String type;
     ImageView imageView3;
     int cartCount;
     LinearLayout linearLayout;
     ProgressDialog progressDialog;
     SharedPreferences sp;
 
+    public String getType() {
+        return type;
+    }
 
     @Override
     public void onMethodCallback() {
@@ -72,8 +76,6 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
                     recyclerView.setVisibility(View.VISIBLE);
                     imageView3.setVisibility(View.GONE);
                 }
-
-
             }
         };
         Thread thread = new Thread(runnable);
@@ -87,7 +89,6 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent mIntent = getIntent();
-        int intValue = mIntent.getIntExtra("intVariableName", 0);
         setContentView(R.layout.activity_cart);
         price = findViewById(R.id.sum);
         progressDialog = new ProgressDialog(this);
@@ -99,16 +100,6 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
         linearLayout = findViewById(R.id.linearLayout4);
         imageView3 = findViewById(R.id.imageView3);
 
-        if (intValue == 0) {
-            linearLayout.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.GONE);
-            imageView3.setVisibility(View.VISIBLE);
-        } else {
-            linearLayout.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.VISIBLE);
-            imageView3.setVisibility(View.GONE);
-        }
-
         productList = new ArrayList<>();
         curd = new CURDOperations(this);
 
@@ -116,18 +107,42 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
         actionBar.setTitle(" Cart ");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        cartAdapter = new CartAdapter(productList, getApplicationContext(), curd, price, Cart.this);
+        cartAdapter = new CartAdapter(productList, Cart.this, curd, price, Cart.this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                productList = curd.findAll(sp.getString("email", ""));
-                cartAdapter.refreshList(productList);
-            }
-        };
-        Thread thread = new Thread(runnable);
-        thread.start();
+        recyclerView.setAdapter(cartAdapter);
+        type=mIntent.getStringExtra("type");
+        if (type.equalsIgnoreCase("buy")){
+            Product product= new Product();
+            product.setQuantity(mIntent.getIntExtra("quantity",1));
+            product.setProduct_name(mIntent.getStringExtra("name"));
+            product.setPrice(mIntent.getStringExtra("price"));
+            product.setImageUrl(mIntent.getStringExtra("image"));
+            product.setmaxQuantity(mIntent.getIntExtra("maxQuantity",1));
+            product.setUid(mIntent.getIntExtra("id",1));
+            productList.add(product);
+            cartAdapter.refreshList(productList);
+        }
+        else{
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    productList = curd.findAll(sp.getString("email", ""));
+                    if (productList.size() == 0) {
+                        linearLayout.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.GONE);
+                        imageView3.setVisibility(View.VISIBLE);
+                    } else {
+                        linearLayout.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                        imageView3.setVisibility(View.GONE);
+                    }
+                    cartAdapter.refreshList(productList);
+                }
+            };
+            Thread thread = new Thread(runnable);
+            thread.start();
+        }
 
 
         checkout.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +159,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
         });
 
 
-        recyclerView.setAdapter(cartAdapter);
+
     }
 
     public void ids(String ids) {
@@ -205,16 +220,21 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Runnable runnable = new Runnable() {
-                            @Override
-                            public void run() {
-                                for (int i = 0; i < productList.size(); i++) {
-                                    curd.removeFromCart(productList.get(i));
+                        if(!type.equalsIgnoreCase("buy")) {
+                            Runnable runnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    for (int i = 0; i < productList.size(); i++) {
+                                        curd.removeFromCart(productList.get(i));
+                                    }
+                                    productList.clear();
                                 }
-                                productList.clear();
-                            }
-                        };
-                        new Thread(runnable).start();
+                            };
+                            new Thread(runnable).start();
+                        }
+                        else{
+                            productList.clear();
+                        }
                         linearLayout.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         imageView3.setVisibility(View.VISIBLE);

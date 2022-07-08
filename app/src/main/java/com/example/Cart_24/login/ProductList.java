@@ -129,7 +129,7 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.nav_cart) {
             Intent myIntent = new Intent(getApplicationContext(), Cart.class);
-            myIntent.putExtra("intVariableName", cartCount);
+            myIntent.putExtra("type","cart");
             startActivity(myIntent);
         }
         return toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
@@ -268,11 +268,6 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
                     }
                 }
         );
-        int socketTimeOut = 50000;
-        RetryPolicy policy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-
-        stringRequest.setRetryPolicy(policy);
-
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
 

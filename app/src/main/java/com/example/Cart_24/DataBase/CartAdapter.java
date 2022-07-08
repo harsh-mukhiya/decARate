@@ -1,5 +1,6 @@
 package com.example.Cart_24.DataBase;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Cart_24.AdapterCallback;
 import com.example.Cart_24.R;
+import com.example.Cart_24.login.Cart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +60,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.price.setText("₹ " + mproductList.get(position).getPrice());
         holder.product_name.setText(mproductList.get(position).getProduct_name());
 
@@ -70,12 +72,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
                     @Override
                     public void run() {
                         curd.update(mproductList.get(position).email, mproductList.get(position).uid,i+1);
-                        mproductList.get(position).setQuantity(i+1);
-                        updatePrice();
                     }
                 };
                 Thread thread = new Thread(runnable);
                 thread.start();
+                mproductList.get(position).setQuantity(i+1);
+                updatePrice();
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) { }
@@ -89,18 +92,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
                 android.R.layout
                         .simple_spinner_dropdown_item);
         holder.pQuantity.setAdapter(ad);
+        holder.pQuantity.setSelection(mproductList.get(position).getQuantity()-1);
 
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                holder.newQuantity =curd.getQuantity(mproductList.get(position).uid, mproductList.get(position).email )-1;
-                holder.pQuantity.setSelection(holder.newQuantity);
-                updatePrice();
-
-            }
-        };
-        Thread thread = new Thread(runnable);
-        thread.start();
         if (isAvailable(String.valueOf(mproductList.get(position).getUid()))) {
             holder.product_name.setTextColor(Color.RED);
         } else {
@@ -116,15 +109,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
             holder.imageView.setImageResource(R.mipmap.ic_launcher);
         }
 
-        Product product = new Product();
-        product.uid = mproductList.get(position).getUid();
-        product.product_name = mproductList.get(position).getProduct_name();
-        product.price = mproductList.get(position).getPrice();
-        product.imageUrl = mproductList.get(position).getImageUrl();
-        product.email = mproductList.get(position).getEmail();
+        if(((Cart)context).getType().equalsIgnoreCase("buy")){
+            holder.cremove.setVisibility(View.GONE);
+        }
+        else {
+            holder.cremove.setVisibility(View.VISIBLE);
+        }
+
         holder.cremove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Product product = new Product();
+                product.uid = mproductList.get(position).getUid();
+                product.product_name = mproductList.get(position).getProduct_name();
+                product.price = mproductList.get(position).getPrice();
+                product.imageUrl = mproductList.get(position).getImageUrl();
+                product.email = mproductList.get(position).getEmail();
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
