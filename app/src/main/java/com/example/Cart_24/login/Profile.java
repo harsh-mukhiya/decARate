@@ -61,7 +61,7 @@ public class Profile extends AppCompatActivity {
     String mobile = "";
     String address = "";
 
-    Button save;
+    TextView save;
     TextView acc_name, acc_mobile, acc_address, acc_email;
     EditText edit_name, edit_mobile, edit_address;
     ImageView edit_image, imageView;

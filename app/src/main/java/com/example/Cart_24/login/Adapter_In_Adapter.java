@@ -43,7 +43,7 @@ public class Adapter_In_Adapter extends RecyclerView.Adapter<Adapter_In_Adapter.
 
         holder.ordered_product_price.setText("₹" + product_orderlist.getPrice() );
         holder.ordered_product_name.setText(product_orderlist.getProduct_name());
-        holder.quantity.setText( " X " + product_orderlist.getQuantity());
+        holder.quantity.setText( " Quantity " + product_orderlist.getQuantity());
 
         ImageView imageView = holder.order_image;
         String image = product_orderlist.getImage();

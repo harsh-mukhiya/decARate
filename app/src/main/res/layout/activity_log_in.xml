@@ -5,18 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
+    android:background="#FFB3E5FC"
     tools:context="com.example.Cart_24.login.LogIn">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="@color/bg"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,19 +90,19 @@
                 android:id="@+id/lpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_visibility_off_24"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:minHeight="48dp"
                 android:longClickable="false"
-                android:drawableRight="@drawable/ic_baseline_visibility_off_24"
+                android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
                 android:layout_gravity="end"
+                android:paddingTop="10dp"
                 android:text="Forgot your password?"
                 android:textSize="12sp" />
 
@@ -106,7 +115,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 app:cardBackgroundColor="#66C3E8"
-                app:cardCornerRadius="50dp">
+                app:cardCornerRadius="40dp">
+
                 <TextView
                     android:id="@+id/btnlogin"
                     android:layout_width="match_parent"
@@ -128,7 +138,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:padding="20dp">
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/textView4"

@@ -50,6 +50,7 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
         lemail = findViewById(R.id.lemail);
         lpassword = findViewById(R.id.lpassword);
         btnLogin = findViewById(R.id.btnlogin);

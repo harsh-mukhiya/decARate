@@ -2,6 +2,8 @@ package com.example.Cart_24.DataBase;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,7 +19,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Cart_24.AdapterCallback;
@@ -59,6 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.price.setText("₹ " + mproductList.get(position).getPrice());
@@ -95,9 +101,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
         holder.pQuantity.setSelection(mproductList.get(position).getQuantity()-1);
 
         if (isAvailable(String.valueOf(mproductList.get(position).getUid()))) {
-            holder.product_name.setTextColor(Color.RED);
+            holder.product_name.setTextColor(context.getResources().getColor(R.color.red));
         } else {
-            holder.product_name.setTextColor(Color.BLACK);
+                holder.product_name.setTextColor(context.getResources().getColor(R.color.zblack));
         }
 
         String image = mproductList.get(position).getImageUrl();
@@ -191,6 +197,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>  i
     }
 
     public void notAvailable(String ids) {
+        Toast.makeText(context, "Some item are out of stock", Toast.LENGTH_SHORT).show();
         String[] res = ids.split(",");
         for (int j = 0; j < res.length; j++) {
             unAvailableProductID.add(res[j]);

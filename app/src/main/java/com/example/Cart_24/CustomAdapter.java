@@ -77,11 +77,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         TextView textView = viewHolder.product_name;
         textView.setText(mDEMO.getpName());
         TextView localPrice = viewHolder.price;
-        localPrice.setText("₹ " + mDEMO.getPrice());
+        localPrice.setText("₹" + mDEMO.getPrice());
 
         TextView localQuantity = viewHolder.pQuantity;
         if (Integer.parseInt(mDEMO.getQuantity()) > 0) {
-            localQuantity.setText("Available : " + mDEMO.getQuantity());
+            localQuantity.setText("In stock " + mDEMO.getQuantity());
             localPrice.setVisibility(View.VISIBLE);
             localQuantity.setVisibility(View.VISIBLE);
             viewHolder.buy_now.setVisibility(View.VISIBLE);

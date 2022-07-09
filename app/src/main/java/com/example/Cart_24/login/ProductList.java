@@ -190,8 +190,8 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
                         dialog.getWindow().getAttributes().windowAnimations = R.style.animaion;
                         dialog.show();
 
-                        Button yes = dialog.findViewById(R.id.yes);
-                        Button no = dialog.findViewById(R.id.no);
+                        TextView yes = dialog.findViewById(R.id.yes);
+                        TextView no = dialog.findViewById(R.id.no);
 
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override

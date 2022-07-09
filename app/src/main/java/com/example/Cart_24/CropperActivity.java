@@ -32,7 +32,7 @@ public class CropperActivity extends AppCompatActivity {
         UCrop.of(fileuri, Uri.fromFile(new File(getCacheDir(), destinationUri)))
                 .withOptions(options)
                 .withAspectRatio(1, 1)
-                .withMaxResultSize(200, 200)
+                .withMaxResultSize(150, 150)
                 .start(CropperActivity.this);
     }
 

@@ -4,16 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
+    android:background="#FFB3E5FC"
     tools:context="com.example.Cart_24.login.SignUp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="@color/bg"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,9 +48,9 @@
                 android:textStyle="bold" />
 
             <View
-            android:id="@+id/divider5"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -102,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:longClickable="false"
                 android:inputType="textPassword"
+                android:longClickable="false"
                 android:minHeight="48dp" />
 
             <TextView
@@ -118,8 +128,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:longClickable="false"
                 android:inputType="textPassword"
+                android:longClickable="false"
                 android:minHeight="48dp" />
 
             <View
@@ -131,13 +141,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 app:cardBackgroundColor="#66C3E8"
-                app:cardCornerRadius="100dp">
+                app:cardCornerRadius="40dp">
                 <TextView
                     android:id="@+id/signUp"
-                    android:text="Sign Up"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:text="Sign Up"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>

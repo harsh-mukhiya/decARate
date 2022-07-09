@@ -5,6 +5,7 @@ import static java.lang.Integer.parseInt;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,7 +54,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     String type;
     ImageView imageView3;
     int cartCount;
-    LinearLayout linearLayout;
+    CardView linearLayout;
     ProgressDialog progressDialog;
     SharedPreferences sp;
 
@@ -97,7 +98,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
 
         recyclerView = findViewById(R.id.recycler);
         checkout = findViewById(R.id.checkout);
-        linearLayout = findViewById(R.id.linearLayout4);
+        linearLayout = findViewById(R.id.cardView4);
         imageView3 = findViewById(R.id.imageView3);
 
         productList = new ArrayList<>();
@@ -205,9 +206,8 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     public void postCheckout(String ids) {
         progressDialog.show();
 //        total ammount and email to post in new spread sheet
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "https://script.google.com/macros/s/AKfycbw_LoLXuYWhPJKbOyxODeP2-vi2ER66EYrrXcCEVdgu6HsfA0XSpHUYsAhoYdPow_S-hA/exec",
+                "https://script.google.com/macros/s/AKfycbxUDKFaoN-HGD7IfN046yOsPQXVSjHMRj_Jy2I9lW5sHm5k2O2Ga_FHbI43TknfedOImA/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
