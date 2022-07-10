@@ -29,161 +29,171 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Sign Up"
-                android:textColor="#66C3E8"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="Name" />
-
-            <EditText
-                android:id="@+id/sname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="Mobile No" />
-
-            <EditText
-                android:id="@+id/sphone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="Email" />
-
-            <EditText
-                android:id="@+id/semail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="Password" />
-
-            <EditText
-                android:id="@+id/s1password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:longClickable="false"
-                android:minHeight="48dp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:text="Confirm Password" />
-
-            <EditText
-                android:id="@+id/s2password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:longClickable="false"
-                android:minHeight="48dp" />
-
-            <View
-                android:id="@+id/divider6"
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                app:cardBackgroundColor="#66C3E8"
-                app:cardCornerRadius="40dp">
-                <TextView
-                    android:id="@+id/signUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Sign Up"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
-
-
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="20dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="20dp">
 
                 <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Already a registered user?  "
-                    android:textSize="16sp" />
+                    android:padding="10dp"
+                    android:text="Sign Up"
+                    android:textColor="#66C3E8"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
 
                 <TextView
-                    android:id="@+id/slogin"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Log In"
-                    android:textColor="#66C3E8"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                    android:paddingTop="10dp"
+                    android:text="Name" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/sname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Mobile No" />
+
+                <EditText
+                    android:id="@+id/sphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:minHeight="48dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Email" />
+
+                <EditText
+                    android:id="@+id/semail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Password" />
+
+                <EditText
+                    android:id="@+id/s1password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:longClickable="false"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Confirm Password" />
+
+                <EditText
+                    android:id="@+id/s2password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:longClickable="false"
+                    android:minHeight="48dp" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:cardBackgroundColor="#66C3E8"
+                    app:cardCornerRadius="40dp">
+
+                    <TextView
+                        android:id="@+id/signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Sign Up"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </androidx.cardview.widget.CardView>
+
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Already a registered user?"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/slogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Log In"
+                        android:textColor="#66C3E8"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
