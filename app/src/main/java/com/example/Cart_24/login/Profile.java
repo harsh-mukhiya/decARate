@@ -264,7 +264,7 @@ public class Profile extends AppCompatActivity {
 
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(" Account ");
+        actionBar.setTitle(" Account Info ");
         actionBar.setDisplayHomeAsUpEnabled(true);
         sp = getSharedPreferences("ID", MODE_PRIVATE);
 

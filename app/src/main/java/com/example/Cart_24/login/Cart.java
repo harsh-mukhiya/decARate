@@ -54,7 +54,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     String type;
     ImageView imageView3;
     int cartCount;
-    CardView linearLayout;
+    LinearLayout linearLayout;
     ProgressDialog progressDialog;
     SharedPreferences sp;
 
