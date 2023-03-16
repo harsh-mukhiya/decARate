@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFB3E5FC"
-    tools:context="com.example.Cart_24.login.SignUp">
+    tools:context="com.example.decARate.login.SignUp">
 
     <ImageView
         android:layout_width="match_parent"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cart 24</string>
+    <string name="app_name">decARate</string>
     <string name="title_activity_fetch">Fetch</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

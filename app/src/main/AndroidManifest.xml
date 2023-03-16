@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.Cart_24">
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -21,66 +20,66 @@
         android:theme="@style/Theme.DemoGoogleSheet"
         tools:targetApi="31">
         <activity
-            android:name="com.example.Cart_24.Change_Password"
+            android:name="com.example.decARate.Change_Password"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.Cart_24.login.ProductList" />
+                android:value="com.example.decARate.login.ProductList" />
         </activity>
 
         <activity
-            android:name="com.example.Cart_24.Chnage_password_Success"
+            android:name="com.example.decARate.Chnage_password_Success"
             android:exported="false" />
         <activity
-            android:name="com.example.Cart_24.login.Forgot_password"
+            android:name="com.example.decARate.login.Forgot_password"
             android:exported="false" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.Cart_24.login.LogIn" />
+                android:value="com.example.decARate.login.LogIn" />
         </activity>
 
 
 
         <activity
-            android:name="com.example.Cart_24.CropperActivity"
+            android:name="com.example.decARate.CropperActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.Cart_24.login.Order_complete"
+            android:name="com.example.decARate.login.Order_complete"
             android:exported="false" />
         <activity
-            android:name="com.example.Cart_24.login.OrderedList_Nav"
+            android:name="com.example.decARate.login.OrderedList_Nav"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.Cart_24.login.ProductList" />
+                android:value="com.example.decARate.login.ProductList" />
         </activity>
         <activity
-            android:name="com.example.Cart_24.login.LogIn"
+            android:name="com.example.decARate.login.LogIn"
             android:exported="false"
             android:theme="@style/Theme.MY" />
         <activity
-            android:name="com.example.Cart_24.login.Cart"
+            android:name="com.example.decARate.login.Cart"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.Cart_24.login.ProductList" />
+                android:value="com.example.decARate.login.ProductList" />
         </activity>
         <activity
-            android:name="com.example.Cart_24.login.SignUp"
+            android:name="com.example.decARate.login.SignUp"
             android:exported="false"
             android:theme="@style/Theme.MY" />
         <activity
-            android:name="com.example.Cart_24.login.ProductList"
+            android:name="com.example.decARate.login.ProductList"
             android:exported="false" />
         <activity
-            android:name="com.example.Cart_24.login.Profile"
+            android:name="com.example.decARate.login.Profile"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.Cart_24.login.ProductList" />
+                android:value="com.example.decARate.login.ProductList" />
         </activity>
         <activity
-            android:name="com.example.Cart_24.MainActivity"
+            android:name="com.example.decARate.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -99,7 +98,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name="com.example.decARate.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

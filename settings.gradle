@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Cart 24"
+rootProject.name = "decARate"
 include ':app'

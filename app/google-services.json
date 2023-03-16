@@ -1,62 +1,33 @@
 {
   "project_info": {
-    "project_number": "948167691869",
-    "project_id": "cart-24-seller",
-    "storage_bucket": "cart-24-seller.appspot.com"
+    "project_number": "927606299609",
+    "project_id": "decarate-9bfcf",
+    "storage_bucket": "decarate-9bfcf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:948167691869:android:03892f544813626e09c7b4",
+        "mobilesdk_app_id": "1:927606299609:android:1bf772c96add06cded17c8",
         "android_client_info": {
-          "package_name": "com.example.Cart_24"
+          "package_name": "com.example.decARate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "948167691869-kj8pl9l2rnl7mda414t322ufomjtvre6.apps.googleusercontent.com",
+          "client_id": "927606299609-v21jqph5faiq7t370817411b2q09olkv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBar4N6e19OkgJXNL3czfnCkYbt90vBwq0"
+          "current_key": "AIzaSyBmiYicJCRBEsDKeBUil9cpLH5jQYZipBM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "948167691869-kj8pl9l2rnl7mda414t322ufomjtvre6.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:948167691869:android:81f44b169813eefe09c7b4",
-        "android_client_info": {
-          "package_name": "com.example.cart24seller"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "948167691869-kj8pl9l2rnl7mda414t322ufomjtvre6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBar4N6e19OkgJXNL3czfnCkYbt90vBwq0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "948167691869-kj8pl9l2rnl7mda414t322ufomjtvre6.apps.googleusercontent.com",
+              "client_id": "927606299609-v21jqph5faiq7t370817411b2q09olkv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
