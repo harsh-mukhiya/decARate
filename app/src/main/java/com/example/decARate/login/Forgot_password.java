@@ -118,7 +118,7 @@ public class Forgot_password extends AppCompatActivity {
     }
 
     public void changePassword() {
-        String url = "https://script.google.com/macros/s/AKfycbyY6J2S1-GgoMm-JB5oHBAYWrYTu-VJgZf8FdFdob0tcAj5VyjnR8UDiq8J4GVLghWP/exec";
+        String url = "https://script.google.com/macros/s/AKfycbxYb4QirAGVNxvlYxaPVDi44Xc58mnNlBu6t_illJppwPNaQb63L7aSzZN2ITxKmlWe/exec";
         String s1 = url + "?email=" + email.getText().toString();
         String s2 = s1 + "&new_password=" + confirm_new_password.getText().toString();
 

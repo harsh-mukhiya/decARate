@@ -1,6 +1,7 @@
 package com.example.decARate.login;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -37,6 +38,8 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("                         decARate");
 
         sname = findViewById(R.id.sname);
         semail = findViewById(R.id.semail);
@@ -97,7 +100,7 @@ public class SignUp extends AppCompatActivity {
         } else {
             progressDialog.show();
 
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbx3AHADFIWYqMYTCs0pKoXKt9CUP3l19c0HiECHr4LRcVD-XDhwOb-SSLqlO2Yxoe7V/exec", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbwVHmps9xBXOFAc1v2ZArYbIvjfwqGMjoMpNeCkoYfIg5vutrKUeC7rX2Njn3mTVRDU2g/exec", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     String output = "";

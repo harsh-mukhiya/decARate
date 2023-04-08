@@ -135,7 +135,7 @@ public class Profile extends AppCompatActivity {
     public void uploadImage(String base64) {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbwSyIVbAlrgH_AM8zJ_meVY0Ivfyv_4Ipq612pAwfd1SslQCgDeVr7RDXOaabE_EC6YlQ/exec"
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbyqk-yfHGJ-f-n2qw9En6bnTA7P5605bQhaOPv-6EiF8pzU4fx01T-KhTxddVlHzHiM/exec"
                 , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -299,7 +299,7 @@ public class Profile extends AppCompatActivity {
 
     private void editAccountDetails() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbzA_CG-kcXL9uuOq9o2oNGMI7nSoYs_UoR0kSd4jIDQfeJKEJvbWDkODWkP_F-1yMZuVg/exec"
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbxRTgmA10LS2EVtASCl_u-U7bd5lCh8hMtiHpNYUOabWgxqIE2Qpv5NgPv-qlRV8n6N/exec"
                 , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -337,7 +337,7 @@ public class Profile extends AppCompatActivity {
 
     private void getAccountDetails() {
         String s1 = sp.getString("email", "");
-        String url = "https://script.google.com/macros/s/AKfycbzqSXaWRVWFLmWBN9Ldk90jJPMYRr64ckAdyw_xUzqel-PXe_AfZcvWly0oiqbGsrrO2w/exec?email=";
+        String url = "https://script.google.com/macros/s/AKfycbxRTgmA10LS2EVtASCl_u-U7bd5lCh8hMtiHpNYUOabWgxqIE2Qpv5NgPv-qlRV8n6N/exec?email=";
 
         String s2 = url + s1;
 

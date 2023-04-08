@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="cream">#FEF7EF</color>
+    <color name="primary">#F5866D</color>
+    <color name="primary_700">#E86D50</color>
+    <color name="gray_200">#888888</color>
+    <color name="gray_500">#555555</color>
+    <color name="brown_500">#5F4A39</color>
+    <color name="brown_700">#2B2724</color>
+
+
     <color name="blue_200">#9cf6ff</color>
     <color name="blue_500">#2992b6</color>
     <color name="blue_700">#2992b6</color>

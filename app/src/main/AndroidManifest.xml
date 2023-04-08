@@ -55,8 +55,7 @@
         </activity>
         <activity
             android:name="com.example.decARate.login.LogIn"
-            android:exported="false"
-            android:theme="@style/Theme.MY" />
+            android:exported="false" />
         <activity
             android:name="com.example.decARate.login.Cart"
             android:exported="false">
@@ -66,8 +65,7 @@
         </activity>
         <activity
             android:name="com.example.decARate.login.SignUp"
-            android:exported="false"
-            android:theme="@style/Theme.MY" />
+            android:exported="false" />
         <activity
             android:name="com.example.decARate.login.ProductList"
             android:exported="false" />

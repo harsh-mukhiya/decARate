@@ -114,7 +114,7 @@ public class Change_Password extends AppCompatActivity {
     }
 
     public void changePassword() {
-        String url = "https://script.google.com/macros/s/AKfycbwrttzr1Aptnt2X6kfQw4IJSFMiYQIT5W1dgeUhBSWKRw9o5qALN869qwpux7IDaZMV/exec?";
+        String url = "https://script.google.com/macros/s/AKfycbw96AH_skarmclGYNgWcPvCOIDGbEvQR8RmVYlBtjmy12D0J8bbbT0qoAPmPRAVIREG/exec?";
         String s1 = url + "email=" + sp.getString("email", "");
         String s2 = s1 + "&password=" + current_password.getText().toString();
         String s3 = s2 + "&new_password=" + confirm_new_password.getText().toString();

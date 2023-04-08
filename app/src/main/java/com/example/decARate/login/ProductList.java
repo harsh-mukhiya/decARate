@@ -231,7 +231,7 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
     private void getItems() {
         String s1 = sp.getString("email", "");
         loading = ProgressDialog.show(this, "Loading", "please wait", false, true);
-        String url = "https://script.google.com/macros/s/AKfycbwjkkpoET6edMt9gFCSlHFp_56wOOOgyiO8nLzXLRyPHjQNXVe5TWW9LoPRH4PRoiS__g/exec";
+        String url = "https://script.google.com/macros/s/AKfycbwQ0VDV-Sf0QMMwlJ1Ey_TnkmKME3B61sjrZuK4NIuWsEAjL9-JjipdsbVesNhp7Yfhog/exec";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -277,7 +277,7 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
             @Override
             public void run() {
                 String s1 = sp.getString("email", "");
-                String url = "https://script.google.com/macros/s/AKfycbzqSXaWRVWFLmWBN9Ldk90jJPMYRr64ckAdyw_xUzqel-PXe_AfZcvWly0oiqbGsrrO2w/exec?email=";
+                String url = "https://script.google.com/macros/s/AKfycbxRTgmA10LS2EVtASCl_u-U7bd5lCh8hMtiHpNYUOabWgxqIE2Qpv5NgPv-qlRV8n6N/exec?email=";
                 String s2 = url + s1;
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -325,7 +325,7 @@ public class ProductList extends AppCompatActivity implements AdapterCallback {
         loggingout = ProgressDialog.show(this, "Logout", "Just a moment...");
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         //POST TOKEN with email
-        String url="https://script.google.com/macros/s/AKfycbyLg-9jrBKpl89sRThRV_LoC_nU9q_ya75Z-aNiV0F4VcDtNPsI4gLUN8LkbYb7LVX8/exec";
+        String url="https://script.google.com/macros/s/AKfycby-ecmVbJt_lnmKWmUQlkReYBMnUp0t9EuCHhB8CLlw3ME0lnjZa8BgDyd2a9hioICIIw/exec";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url
                 , new Response.Listener<String>() {
             @Override

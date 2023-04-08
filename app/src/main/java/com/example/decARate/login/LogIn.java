@@ -1,6 +1,7 @@
 package com.example.decARate.login;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -50,6 +51,8 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("                         decARate");
 
         lemail = findViewById(R.id.lemail);
         lpassword = findViewById(R.id.lpassword);
@@ -126,7 +129,7 @@ public class LogIn extends AppCompatActivity {
     private void getItems() {
 
         loading = ProgressDialog.show(this, "Loading", "please wait", false, true);
-        String url = "https://script.google.com/macros/s/AKfycbx3AHADFIWYqMYTCs0pKoXKt9CUP3l19c0HiECHr4LRcVD-XDhwOb-SSLqlO2Yxoe7V/exec?";
+        String url = "https://script.google.com/macros/s/AKfycbwVHmps9xBXOFAc1v2ZArYbIvjfwqGMjoMpNeCkoYfIg5vutrKUeC7rX2Njn3mTVRDU2g/exec?";
         String email = lemail.getText().toString();
         String password = lpassword.getText().toString();
         String s1 = url + "email=" + email;
@@ -194,7 +197,7 @@ public class LogIn extends AppCompatActivity {
     private void uploadTOKEN(String token) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         //POST TOKEN with email
-        String url="https://script.google.com/macros/s/AKfycbyLg-9jrBKpl89sRThRV_LoC_nU9q_ya75Z-aNiV0F4VcDtNPsI4gLUN8LkbYb7LVX8/exec";
+        String url="https://script.google.com/macros/s/AKfycby-ecmVbJt_lnmKWmUQlkReYBMnUp0t9EuCHhB8CLlw3ME0lnjZa8BgDyd2a9hioICIIw/exec";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url
                 , new Response.Listener<String>() {
             @Override

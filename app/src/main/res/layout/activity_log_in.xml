@@ -5,18 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFB3E5FC"
+    android:background="@color/cream"
     tools:context="com.example.decARate.login.LogIn">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
@@ -50,7 +41,7 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Log In"
-                android:textColor="#66C3E8"
+                android:textColor="@color/primary"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -117,7 +108,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                app:cardBackgroundColor="#66C3E8"
+                app:cardBackgroundColor="@color/primary"
                 app:cardCornerRadius="40dp">
 
                 <TextView
@@ -159,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="SignUp"
-                    android:textColor="#66C3E8"
+                    android:textColor="@color/primary"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>

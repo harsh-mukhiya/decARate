@@ -148,7 +148,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                progressDialog.show();
                 StringJoiner s = new StringJoiner(",");
                 for (int i = 0; i < productList.size(); i++) {
                     s.add(String.valueOf(productList.get(i).getUid())+"-"+productList.get(i).getQuantity());
@@ -163,7 +163,7 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     }
 
     public void ids(String ids) {
-        String url = "https://script.google.com/macros/s/AKfycbwOXIeYVnJKJBAmKmkGjWjV6cTEYlxffEQZ7ncXsCVqaWcAYsIcfN3rNxj4n-_BboXy/exec?ids=";
+        String url = "https://script.google.com/macros/s/AKfycbwvqA7aqRC8Utbp9gNSMFFE3uFqiJ32TRlXid9HdldNpUo5YpbWtAAFreIn6-p6s1E/exec?ids=";
         String s1 = url + ids;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, s1,
@@ -203,10 +203,9 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
     }
 
     public void postCheckout(String ids) {
-        progressDialog.show();
 //        total ammount and email to post in new spread sheet
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "https://script.google.com/macros/s/AKfycbxUDKFaoN-HGD7IfN046yOsPQXVSjHMRj_Jy2I9lW5sHm5k2O2Ga_FHbI43TknfedOImA/exec",
+                "https://script.google.com/macros/s/AKfycbxIuqr_NvXUzIiGusiDOjFIWBRSNwPoGXmuhcprLj1CiIjGuxfB0YsQQRuUXAb_GmVDsw/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -234,14 +233,13 @@ public class Cart extends AppCompatActivity implements AdapterCallback {
                         else{
                             productList.clear();
                         }
+                        progressDialog.dismiss();
                         linearLayout.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         imageView3.setVisibility(View.VISIBLE);
-                        progressDialog.hide();
                         Intent intent = new Intent(getApplicationContext(), Order_complete.class);
                         intent.putExtra("orderId", output);
                         startActivity(intent);
-
                     }
                 }, new Response.ErrorListener() {
             @Override
